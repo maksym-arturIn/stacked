@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Volksans";
+  src: url("/fonts/volksans/volksansTest-Regular.woff2") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Volksans";
+  src: url("/fonts/volksans/volksansTest-Normal.woff2") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tactic";
+  src: url("/fonts/volksans/TacticSans-Reg.woff2") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
