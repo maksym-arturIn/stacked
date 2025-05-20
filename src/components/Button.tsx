@@ -9,7 +9,7 @@ import {
 type Variant = "brand";
 
 const styles: Record<Variant, string> = {
-  brand: "bg-brand active:bg-secondary-brand",
+  brand: "bg-brand hover:bg-brand-hover active:bg-secondary-brand",
 };
 
 type Props = {

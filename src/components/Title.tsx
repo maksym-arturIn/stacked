@@ -3,14 +3,10 @@ import classNames from "classnames";
 
 const styles = {
   h1: "title-1",
-  h2: "",
-  h3: "",
-  h4: "",
-  h5: "",
-  h6: "",
+  h2: "title-2",
 };
 
-type Component = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type Component = "h1" | "h2";
 
 type Props = {
   text: string;
@@ -27,14 +23,7 @@ export const Title: FC<Props> = ({
   ...props
 }) => {
   return (
-    <Component
-      className={classNames(
-        "text-3xl font-tactic",
-        styles[Component],
-        className
-      )}
-      {...props}
-    >
+    <Component className={classNames(styles[Component], className)} {...props}>
       {text}
     </Component>
   );

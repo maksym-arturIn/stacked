@@ -6,6 +6,11 @@ export type ConnectionItemType = {
   isConnected: boolean;
 };
 
+export const DEFAULT_STEP = 0;
+export const FIRST_STEP = 1;
+export const SECOND_STEP = 2;
+export const THIRD_STEP = 3;
+
 export const connectionsList: ConnectionItemType[] = [
   {
     id: "sleeper",
@@ -37,5 +42,32 @@ export const connectionsList: ConnectionItemType[] = [
     icon: "/icons/connections/nfl.png",
     title: "NFL.com",
     isConnected: false,
+  },
+];
+
+export const downloadingDataList = [
+  {
+    id: "connecting-to-platform",
+    title: "Connecting to platform",
+  },
+  {
+    id: "finding-active-slates",
+    title: "Finding Active Slates",
+    subtitle: "4 leagues found",
+  },
+  {
+    id: "loading-eagues",
+    title: "Loading Leagues",
+
+    items: [
+      { id: "league-delta", title: "League Delta" },
+      {
+        id: "league-alpha",
+        title: "League Alpha",
+        metadata: ["64%", "15s left"],
+      },
+      { id: "league-gamma", title: "League Gamma" },
+      { id: "league-beta", title: "League Beta" },
+    ],
   },
 ];

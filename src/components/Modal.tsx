@@ -2,6 +2,8 @@
 
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import classNames from "classnames";
+import { IconButton } from "./IconButton";
+import Image from "next/image";
 
 type Props = {
   isOpen: boolean;
@@ -14,12 +16,17 @@ export const Modal: FC<Props> = ({ isOpen, close, children }) => {
 
   useEffect(() => {
     if (isOpen) {
+      document.body.classList.add("no-scroll");
       setShouldRender(true);
       setTimeout(() => setShow(true), 10);
     } else {
       setShow(false);
+      document.body.classList.remove("no-scroll");
       const timeout = setTimeout(() => setShouldRender(false), 200);
-      return () => clearTimeout(timeout);
+      return () => {
+        document.body.classList.remove("no-scroll");
+        clearTimeout(timeout);
+      };
     }
   }, [isOpen]);
 
@@ -43,14 +50,19 @@ export const Modal: FC<Props> = ({ isOpen, close, children }) => {
 
       <div
         className={classNames(
-          "z-20 relative transform transition-all duration-200 sm:w-full sm:max-w-lg",
+          "z-20 relative transform transition-all duration-200 w-[90%] sm:w-full sm:max-w-xl",
           show ? "opacity-100 scale-100" : "opacity-0 scale-95"
         )}
       >
-        <div className="overflow-hidden rounded-lg bg-white text-left shadow-xl">
-          <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-            {children}
-          </div>
+        <IconButton
+          onClick={close}
+          variant="transparent"
+          className="absolute top-1 right-1 sm:top-7 sm:right-7"
+        >
+          <Image src={"/icons/close.svg"} alt={""} width={16} height={16} />
+        </IconButton>
+        <div className="overflow-hidden rounded-md bg-main-background text-left shadow-xl">
+          <div className="bg-main-background p-4 md:p-8">{children}</div>
         </div>
       </div>
     </div>

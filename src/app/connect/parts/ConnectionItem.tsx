@@ -9,8 +9,10 @@ type Props = {
 };
 
 export const ConnectionItem: FC<Props> = ({ item, onClick }) => {
+  const isConnected = item.isConnected;
+
   return (
-    <div className="p-6 bg-foreground w-full rounded-md flex items-center">
+    <div className="p-6 bg-main-foreground w-full rounded-md flex items-center">
       <div className="flex items-center gap-4">
         <Image src={item.icon} alt={item.title} width={32} height={32} />
         <div className="column justify-between">
@@ -21,8 +23,8 @@ export const ConnectionItem: FC<Props> = ({ item, onClick }) => {
         </div>
       </div>
       <div className="ml-auto">
-        <IconButton onClick={() => onClick(item.id)}>
-          {item.isConnected ? (
+        <IconButton disabled={isConnected} onClick={() => onClick(item.id)}>
+          {isConnected ? (
             <Image
               src={"/icons/connections/check.svg"}
               alt={"Check"}
