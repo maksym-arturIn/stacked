@@ -1,3 +1,9 @@
+import { ConnectPageInner, Container } from "./parts";
+
 export default function ConnectPage() {
-  return <div className="text-accent">ConnectPage</div>;
+  return (
+    <Container>
+      <ConnectPageInner />
+    </Container>
+  );
 }
