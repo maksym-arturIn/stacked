@@ -35,13 +35,9 @@ export const ConnectingModal: FC<Props> = ({
 }) => {
   const { setStep } = useConnectState();
 
-  const onSubmit = useCallback(
-    (values: InitialValues) => {
-      console.log("values", values);
-      setStep(SECOND_STEP);
-    },
-    [setStep]
-  );
+  const onSubmit = useCallback(() => {
+    setStep(SECOND_STEP);
+  }, [setStep]);
 
   const formik = useFormik({
     initialValues,
